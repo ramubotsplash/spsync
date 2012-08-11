@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1D5C1B66-507E-496A-9D17-FC58269C6919}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Rohi.EBinder.DataAccess</RootNamespace>
+    <AssemblyName>Rohi.EBinder.DataAccess</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <ItemGroup>
+    <Compile Include="Adapters\BinderSettings\DefaultBinderSettings.cs" />
+    <Compile Include="Adapters\BinderSettings\PresStratBinderSettings.cs" />
+    <Compile Include="Repositories\DbBrowser\DbBrowser.cs" />
+    <Compile Include="Repositories\DbBrowser\IDbBrowser.cs" />
+    <Compile Include="Services\Session\IAppSession.cs" />
+    <Compile Include="Services\Session\AppSession.cs" />
+    <Compile Include="Services\Sync\SyncDriver.cs" />
+    <Compile Include="Services\Sync\ISyncDriver.cs" />
+    <Compile Include="Services\Sync\SyncProgressArgs.cs" />
+    <Compile Include="Services\Session\AuthenticationArgs.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dependencies\TinyIoC\src\TinyIoC.MetroStyle\TinyIoC.MetroStyle.csproj">
+      <Project>{b9739c70-9fd1-40ea-9493-7e6b64518bbd}</Project>
+      <Name>TinyIoC.MetroStyle</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Rohi.Apps.Core\Rohi.Apps.Core.csproj">
+      <Project>{1745b819-8429-4436-96de-6688229a37cc}</Project>
+      <Name>Rohi.Apps.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Rohi.EBinder.Sync\Rohi.EBinder.Sync.csproj">
+      <Project>{155ea68f-0c7c-41e9-98e2-9c75c8ca1360}</Project>
+      <Name>Rohi.EBinder.Sync</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Rohi.SPSync.Entities\Rohi.EBinder.Entities.csproj">
+      <Project>{85fd1862-d816-4ac9-bd4a-4bf6cbcf811d}</Project>
+      <Name>Rohi.EBinder.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{155EA68F-0C7C-41E9-98E2-9C75C8CA1360}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Rohi.EBinder.Sync</RootNamespace>
+    <AssemblyName>Rohi.EBinder.Sync</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <ItemGroup>
+    <Compile Include="Repositories\ISyncFactory.cs" />
+    <Compile Include="Repositories\DefaultSyncFactory.cs" />
+    <Compile Include="Repositories\Adapters\IServerDataProvider.cs" />
+    <Compile Include="Repositories\Adapters\LocalStorageServerDataProvider.cs" />
+    <Compile Include="Repositories\Adapters\CachedServerDataProvider.cs" />
+    <Compile Include="Repositories\Adapters\SP2010ServerDataProvider.cs" />
+    <Compile Include="Service References\ListsReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SiteDataReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WebsReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dependencies\TinyIoC\src\TinyIoC.MetroStyle\TinyIoC.MetroStyle.csproj">
+      <Project>{b9739c70-9fd1-40ea-9493-7e6b64518bbd}</Project>
+      <Name>TinyIoC.MetroStyle</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Rohi.Apps.Core\Rohi.Apps.Core.csproj">
+      <Project>{60767D8B-E572-476C-82D1-480E4A814D65}</Project>
+      <Name>Rohi.Apps.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Rohi.SPSync.Entities\Rohi.EBinder.Entities.csproj">
+      <Project>{85FD1862-D816-4AC9-BD4A-4BF6CBCF811D}</Project>
+      <Name>Rohi.EBinder.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
+    <None Include="Service References\ListsReference\lists.wsdl" />
+    <None Include="Service References\ListsReference\Rohi.EBinder.Sync.ListsReference.AddAttachmentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ListsReference\Rohi.EBinder.Sync.ListsReference.AddDiscussionBoardItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ListsReference\Rohi.EBinder.Sync.ListsReference.AddListFromFeatureResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ListsReference\Rohi.EBinder.Sync.ListsReference.AddListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ListsReference\Rohi.EBinder.Sync.ListsReference.ApplyContentTypeToListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ListsReference\Rohi.EBinder.Sync.ListsReference.CheckInFileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ListsReference\Rohi.EBinder.Sync.ListsReference.CheckOutFileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ListsReference\Rohi.EBinder.Sync.ListsReference.CreateContentTypeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ListsReference\Rohi.EBinder.Sync.ListsReference.DeleteAttachmentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ListsReference\Rohi.EBinder.Sync.ListsReference.DeleteContentTypeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ListsReference\Rohi.EBinder.Sync.ListsReference.DeleteContentTypeXmlDocumentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ListsReference\Rohi.EBinder.Sync.ListsReference.DeleteListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ListsReference\Rohi.EBinder.Sync.ListsReference.GetAttachmentCollectionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ListsReference\Rohi.EBinder.Sync.ListsReference.GetListAndViewResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ListsReference\Rohi.EBinder.Sync.ListsReference.GetListCollectionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ListsReference\Rohi.EBinder.Sync.ListsReference.GetListContentTypeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ListsReference\Rohi.EBinder.Sync.ListsReference.GetListContentTypesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ListsReference\Rohi.EBinder.Sync.ListsReference.GetListItemChangesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ListsReference\Rohi.EBinder.Sync.ListsReference.GetListItemChangesSinceTokenResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ListsReference\Rohi.EBinder.Sync.ListsReference.GetListItemsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ListsReference\Rohi.EBinder.Sync.ListsReference.GetListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ListsReference\Rohi.EBinder.Sync.ListsReference.GetVersionCollectionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ListsReference\Rohi.EBinder.Sync.ListsReference.UndoCheckOutResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ListsReference\Rohi.EBinder.Sync.ListsReference.UpdateContentTypeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ListsReference\Rohi.EBinder.Sync.ListsReference.UpdateContentTypesXmlDocumentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ListsReference\Rohi.EBinder.Sync.ListsReference.UpdateContentTypeXmlDocumentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ListsReference\Rohi.EBinder.Sync.ListsReference.UpdateListItemsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ListsReference\Rohi.EBinder.Sync.ListsReference.UpdateListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SiteDataReference\Rohi.EBinder.Sync.SiteDataReference.EnumerateFolderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SiteDataReference\Rohi.EBinder.Sync.SiteDataReference.GetAttachmentsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SiteDataReference\Rohi.EBinder.Sync.SiteDataReference.GetChangesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SiteDataReference\Rohi.EBinder.Sync.SiteDataReference.GetContentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SiteDataReference\Rohi.EBinder.Sync.SiteDataReference.GetListCollectionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SiteDataReference\Rohi.EBinder.Sync.SiteDataReference.GetListItemsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SiteDataReference\Rohi.EBinder.Sync.SiteDataReference.GetListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SiteDataReference\Rohi.EBinder.Sync.SiteDataReference.GetSiteAndWebResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SiteDataReference\Rohi.EBinder.Sync.SiteDataReference.GetSiteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SiteDataReference\Rohi.EBinder.Sync.SiteDataReference.GetSiteUrlResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SiteDataReference\Rohi.EBinder.Sync.SiteDataReference.GetURLSegmentsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SiteDataReference\Rohi.EBinder.Sync.SiteDataReference.GetWebResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SiteDataReference\sitedata.wsdl" />
+    <None Include="Service References\WebsReference\Rohi.EBinder.Sync.WebsReference.CreateContentTypeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsReference\Rohi.EBinder.Sync.WebsReference.CustomizeCssResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsReference\Rohi.EBinder.Sync.WebsReference.DeleteContentTypeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsReference\Rohi.EBinder.Sync.WebsReference.GetActivatedFeaturesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsReference\Rohi.EBinder.Sync.WebsReference.GetAllSubWebCollectionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsReference\Rohi.EBinder.Sync.WebsReference.GetColumnsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsReference\Rohi.EBinder.Sync.WebsReference.GetContentTypeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsReference\Rohi.EBinder.Sync.WebsReference.GetContentTypesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsReference\Rohi.EBinder.Sync.WebsReference.GetCustomizedPageStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsReference\Rohi.EBinder.Sync.WebsReference.GetListTemplatesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsReference\Rohi.EBinder.Sync.WebsReference.GetWebCollectionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsReference\Rohi.EBinder.Sync.WebsReference.GetWebResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsReference\Rohi.EBinder.Sync.WebsReference.RemoveContentTypeXmlDocumentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsReference\Rohi.EBinder.Sync.WebsReference.RevertCssResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsReference\Rohi.EBinder.Sync.WebsReference.RevertFileContentStreamResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsReference\Rohi.EBinder.Sync.WebsReference.UpdateColumnsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsReference\Rohi.EBinder.Sync.WebsReference.UpdateContentTypeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsReference\Rohi.EBinder.Sync.WebsReference.UpdateContentTypeXmlDocumentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsReference\Rohi.EBinder.Sync.WebsReference.WebUrlFromPageUrlResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebsReference\webs.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ListsReference\" />
+    <WCFMetadataStorage Include="Service References\SiteDataReference\" />
+    <WCFMetadataStorage Include="Service References\WebsReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WebsReference\webs.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WebsReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WebsReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WebsReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ListsReference\lists.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ListsReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ListsReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ListsReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SiteDataReference\sitedata.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SiteDataReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SiteDataReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SiteDataReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
+    <VisualStudioVersion>11.0</VisualStudioVersion>
+  </PropertyGroup>
+</Project>

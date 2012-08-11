@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{85FD1862-D816-4AC9-BD4A-4BF6CBCF811D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Rohi.EBinder.Entities</RootNamespace>
+    <AssemblyName>Rohi.EBinder.Entities</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <ItemGroup>
+    <Compile Include="Entities\DbDocument.cs" />
+    <Compile Include="Entities\DbSettings.cs" />
+    <Compile Include="Entities\DbSiteInfo.cs" />
+    <Compile Include="Entities\DbLibrary.cs" />
+    <Compile Include="Types\Enums.cs" />
+    <Compile Include="Types\Constants.cs" />
+    <Compile Include="Types\SharePointEnums.cs" />
+    <Compile Include="Types\TypeUtilities.cs" />
+    <Compile Include="BinderDb\IBinderDb.cs" />
+    <Compile Include="BinderDb\BinderDb.cs" />
+    <Compile Include="BinderSettings\IBinderSettings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dependencies\TinyIoC\src\TinyIoC.MetroStyle\TinyIoC.MetroStyle.csproj">
+      <Project>{b9739c70-9fd1-40ea-9493-7e6b64518bbd}</Project>
+      <Name>TinyIoC.MetroStyle</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Rohi.Apps.Core\Rohi.Apps.Core.csproj">
+      <Project>{1745b819-8429-4436-96de-6688229a37cc}</Project>
+      <Name>Rohi.Apps.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>
